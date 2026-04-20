@@ -3,111 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>AutoPayPlus — Setup Summary</title>
+  <title>AutoPayPlus — Add New Loan (Existing Member)</title>
   <link rel="stylesheet" href="shared.css">
+  <script src="https://kit.fontawesome.com/88e6030591.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="phone-frame">
-  <!-- Page Header -->
-  <div class="page-header">
-    <a href="/draft2/07-payment-method.html" class="back-link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Back</a>
-    <img src="/logo.webp" alt="AutoPayPlus">
+<main class="app">
+
+  <!-- Step bar — shorter for existing member (2 steps) -->
+  <div class="step-bar">
+    <div class="step-meta">
+      <span class="label">New loan setup</span>
+      <span>Step 1 of 2</span>
+    </div>
+    <div class="step-track"><div class="step-fill" style="width:50%;"></div></div>
   </div>
-  <div class="screen">
 
-    <div class="step-bar" style="margin-top:20px;">
-      <span class="step-label">Almost Done</span>
-      <div class="step-track"><div class="step-fill" style="width:95%"></div></div>
-    </div>
-
-    <!-- Header -->
-    <div style="text-align:center;margin-bottom:24px;">
-      <div style="width:64px;height:64px;border-radius:50%;background:rgba(22,163,74,0.1);display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px;">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-      </div>
-      <h1>You're almost set</h1>
-      <p class="subtitle" style="margin-bottom:0;">Here's what's complete and what may still need your attention.</p>
-    </div>
-
-    <!-- Checklist Card -->
-    <div class="card mb-6">
-      <!-- Identity -->
-      <div class="checklist-item">
-        <div class="checklist-icon" style="background:rgba(22,163,74,0.1);color:var(--success);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <span class="text-sm fw-500 flex-1">Identity verified</span>
-        <span class="badge badge-success">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Complete
-        </span>
-      </div>
-
-      <!-- Contact -->
-      <div class="checklist-item">
-        <div class="checklist-icon" style="background:rgba(22,163,74,0.1);color:var(--success);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <span class="text-sm fw-500 flex-1">Contact info confirmed</span>
-        <span class="badge badge-success">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Complete
-        </span>
-      </div>
-
-      <!-- Login -->
-      <div class="checklist-item">
-        <div class="checklist-icon" style="background:rgba(22,163,74,0.1);color:var(--success);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78 7.78 5.5 5.5 0 0 1 7.78-7.78z"/></svg>
-        </div>
-        <span class="text-sm fw-500 flex-1">Portal login created</span>
-        <span class="badge badge-success">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Complete
-        </span>
-      </div>
-
-      <!-- Payment -->
-      <div class="checklist-item">
-        <div class="checklist-icon" style="background:rgba(22,163,74,0.1);color:var(--success);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </div>
-        <span class="text-sm fw-500 flex-1">Payment method added</span>
-        <span class="badge badge-success">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Complete
-        </span>
-      </div>
-
-      <!-- Credit Monitoring -->
-      <div class="checklist-item">
-        <div class="checklist-icon" style="background:rgba(22,163,74,0.1);color:var(--success);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        </div>
-        <span class="text-sm fw-500 flex-1">Credit monitoring activated</span>
-        <span class="badge badge-success">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Complete
-        </span>
-      </div>
-
-      <!-- Insurance -->
-      <div class="checklist-item" style="border-bottom:none;">
-        <div class="checklist-icon" style="background:var(--bg);color:var(--muted);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <span class="text-sm fw-500 flex-1">Insurance quote available</span>
-        <span class="badge badge-muted">
-          ⭐ Optional
-        </span>
-      </div>
-    </div>
-
-    <div class="spacer"></div>
-
-    <a href="/draft2/12-dashboard.html" class="btn btn-primary">Go to Dashboard</a>
-
+  <!-- Heading -->
+  <div style="margin-bottom:20px;">
+    <h1>Welcome back, Sarah</h1>
+    <p class="subtitle">You're already set up with us — we just need you to confirm a few things for your 2025 Ford Escape.</p>
   </div>
+
+  <!-- Recognition card -->
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-header">
+      <span>Your account</span>
+      <span class="badge badge-green">Returning member</span>
+    </div>
+    <div class="card-body-tight">
+      <div class="flex items-center gap-3" style="padding:4px 0;">
+        <div style="width:38px;height:38px;border-radius:50%;background:var(--green-surface);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <i class="fa-solid fa-user-check" style="font-size:16px;color:#1B9E5A;"></i>
+        </div>
+        <div style="flex:1;">
+          <div class="text-sm fw-700">Identity already verified</div>
+          <div class="text-xs text-soft">From your previous AutoPayPlus loan — no re-verification needed</div>
+        </div>
+        <i class="fa-solid fa-circle-check" style="color:#1B9E5A;font-size:20px;"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- New loan preview -->
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-header">
+      <span>New loan</span>
+      <span class="header-sub">2025 Ford Escape</span>
+    </div>
+    <div class="card-body-tight">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div>
+          <div class="text-xs text-muted fw-600" style="text-transform:uppercase;letter-spacing:0.4px;margin-bottom:3px;">First withdrawal</div>
+          <div class="text-sm fw-700" style="color:var(--primary);">May 5, 2026</div>
+        </div>
+        <div>
+          <div class="text-xs text-muted fw-600" style="text-transform:uppercase;letter-spacing:0.4px;margin-bottom:3px;">Amount</div>
+          <div class="text-sm fw-700">$272.00</div>
+        </div>
+        <div>
+          <div class="text-xs text-muted fw-600" style="text-transform:uppercase;letter-spacing:0.4px;margin-bottom:3px;">Lender</div>
+          <div class="text-sm fw-700">Chase Auto Finance</div>
+        </div>
+        <div>
+          <div class="text-xs text-muted fw-600" style="text-transform:uppercase;letter-spacing:0.4px;margin-bottom:3px;">Plan</div>
+          <div class="text-sm fw-700">Biweekly</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bank account confirm — the key difference from new member flow -->
+  <h2 style="margin-bottom:6px;">Confirm your bank account</h2>
+  <p class="text-sm text-soft" style="margin-bottom:16px;">We'll use the account below for withdrawals. If it's changed, update it now.</p>
+
+  <!-- Account on file -->
+  <div class="card-plain" style="margin-bottom:12px;">
+    <div class="flex items-center gap-3">
+      <div style="width:42px;height:42px;border-radius:8px;background:var(--primary-surface);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <i class="fa-solid fa-building-columns" style="font-size:18px;color:var(--primary);"></i>
+      </div>
+      <div style="flex:1;">
+        <div class="text-sm fw-700">Chase Checking</div>
+        <div class="text-xs text-soft">Account ending in 6712 &nbsp;&middot;&nbsp; Routing ···0021</div>
+        <div class="text-xs" style="color:var(--green);font-weight:600;margin-top:2px;">
+          <i class="fa-solid fa-circle-check" style="font-size:10px;"></i> Used for your previous AutoPayPlus loan
+        </div>
+      </div>
+      <span class="badge badge-green">On file</span>
+    </div>
+  </div>
+
+  <div class="alert alert-info" style="margin-bottom:20px;">
+    <i class="fa-solid fa-circle-info alert-icon" style="color:#0576CE;font-size:16px;"></i>
+    <div class="alert-body">Withdrawals for your Escape will come from this same account unless you update it below.</div>
+  </div>
+
+  <!-- Action buttons -->
+  <div class="btn-row">
+    <a href="em-02-confirm-done.html" class="btn btn-primary">
+      <i class="fa-solid fa-circle-check"></i>
+      Yes, use this account
+    </a>
+  </div>
+  <button class="btn btn-secondary" onclick="document.getElementById('update-form').classList.toggle('hidden');" style="margin-bottom:20px;">
+    <i class="fa-solid fa-pen"></i>
+    Use a different account
+  </button>
+
+  <!-- Update form — hidden by default -->
+  <div id="update-form" class="hidden">
+    <div class="alert alert-warn" style="margin-bottom:14px;">
+      <i class="fa-solid fa-triangle-exclamation alert-icon" style="font-size:16px;color:#9C6600;"></i>
+      <div class="alert-body"><span class="alert-title">Changing your account</span>We'll need to verify the new account before withdrawals start. This takes 1-2 business days.</div>
+    </div>
+    <div class="input-group">
+      <label>Routing number</label>
+      <input type="text" placeholder="9-digit routing number" inputmode="numeric">
+    </div>
+    <div class="input-group">
+      <label>Account number</label>
+      <input type="text" placeholder="Account number" inputmode="numeric">
+    </div>
+    <div class="input-group">
+      <label>Confirm account number</label>
+      <input type="text" placeholder="Re-enter account number" inputmode="numeric">
+    </div>
+    <button class="btn btn-primary">Verify New Account</button>
+  </div>
+
+  <div class="page-footer">
+    <a href="get-help.html" class="help-link">Need help? &rarr;</a>
+    <div class="security-footer">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A8A8A" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span>Bank-level encryption &nbsp;&middot;&nbsp; NACHA compliant</span>
+    </div>
+  </div>
+
+</main>
+
+<!-- Context note outside app frame -->
+<div style="background:#F0F2F5;border-radius:12px;padding:16px;margin:20px;font-size:12px;color:#5A5A5A;line-height:1.6;">
+  <span style="display:inline-block;background:#EDE9FE;color:#5b21b6;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">New — Existing Member Flow</span><br>
+  <strong>Existing member: bank confirm screen.</strong> From April 9 meeting: Bobby confirmed "they're already making payments with us — we shouldn't need them to re-enter a bank account." This screen shows the account on file, asks for a simple yes/no confirm, and allows update only if needed. Key differences from new member flow: no identity verification step (already done), no full account setup, no TU re-enrollment prompt. Andres flagged the edge case: some households use different bank accounts (father/son, husband/wife) — the "Use a different account" path handles this with a verification warning. Pair with: <a href="em-02-confirm-done.html" style="color:#0576CE;">Next step: confirmation &rarr;</a>
 </div>
 </body>
 </html>

@@ -3,113 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>AutoPayPlus — Create Login</title>
+  <title>AutoPayPlus — Portal Login Confirmation SMS</title>
   <link rel="stylesheet" href="shared.css">
+  <style>
+    .sms-screen { background:#1C1C1E; min-height:100vh; display:flex; flex-direction:column; }
+    .sms-header { padding:48px 20px 12px; display:flex; align-items:center; gap:12px; }
+    .sms-avatar { width:36px; height:36px; border-radius:50%; background:#1B9E5A; display:flex; align-items:center; justify-content:center; font-size:16px; }
+    .sms-meta { flex:1; }
+    .sms-name { font-size:16px; font-weight:600; color:#fff; }
+    .sms-sub { font-size:12px; color:#8E8E93; }
+    .sms-body { flex:1; padding:12px 20px 20px; }
+    .sms-bubble-wrap { display:flex; margin-bottom:14px; }
+    .sms-bubble { max-width:82%; padding:12px 16px; border-radius:18px; font-size:14px; line-height:1.55; color:#fff; background:#3A3A3C; }
+    .sms-bubble strong { font-weight:700; }
+    .sms-bubble .next-step { display:block; background:rgba(27,158,90,0.25); border-radius:8px; padding:8px 12px; margin:10px 0 4px; border-left:3px solid #1B9E5A; font-size:13px; }
+    .sms-timestamp { font-size:11px; color:#636366; text-align:center; margin-bottom:16px; }
+    .sms-input { padding:12px 16px 32px; background:#1C1C1E; border-top:1px solid #38383A; display:flex; align-items:center; gap:10px; }
+    .sms-input input { flex:1; background:#2C2C2E; border:none; border-radius:18px; padding:10px 16px; color:#fff; font-size:14px; outline:none; }
+    .sms-input input::placeholder { color:#636366; }
+    .sms-send { width:32px; height:32px; border-radius:50%; background:#0576CE; display:flex; align-items:center; justify-content:center; border:none; cursor:pointer; }
+    .context-note { background:#F0F2F5; border-radius:12px; padding:16px; margin:20px; font-size:12px; color:#5A5A5A; line-height:1.6; }
+    .context-note strong { color:#2C2C2C; }
+    .context-note a { color:#0576CE; font-weight:600; }
+    .context-note .tag { display:inline-block; background:#E8F6EE; color:#0F7B43; font-size:10px; font-weight:700; padding:2px 7px; border-radius:3px; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px; }
+  </style>
 </head>
-<body>
-<div class="phone-frame">
-  <!-- Page Header -->
-  <div class="page-header">
-    <a href="/draft2/05-confirm-contact.html" class="back-link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Back</a>
-    <img src="/logo.webp" alt="AutoPayPlus">
-  </div>
-  <div class="screen">
+<body style="background:#1C1C1E;padding:0;">
 
-    <div class="step-bar" style="margin-top:20px;">
-      <span class="step-label">Create Login</span>
-      <div class="step-track"><div class="step-fill" style="width:50%"></div></div>
-    </div>
-
-    <div class="icon-circle primary">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78 7.78 5.5 5.5 0 0 1 7.78-7.78zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
-    </div>
-    <h1>Secure your access</h1>
-    <p class="subtitle">Create your login so you can manage your plan anytime.</p>
-
-    <div class="input-group">
-      <label>Username</label>
-      <input type="text" placeholder="Choose a username" id="username" oninput="checkForm()">
-    </div>
-
-    <div class="input-group">
-      <label>Password</label>
-      <div class="input-wrapper">
-        <input type="password" placeholder="Create a password" id="password" oninput="checkPassword()">
-        <button class="toggle-pw" onclick="togglePW(this)">👁</button>
+  <div class="sms-screen">
+    <div class="sms-header">
+      <div class="sms-avatar">✓</div>
+      <div class="sms-meta">
+        <div class="sms-name">AutoPayPlus</div>
+        <div class="sms-sub">Text Message · Fires immediately after first login</div>
       </div>
     </div>
 
-    <!-- Password Rules -->
-    <div class="pw-rules" id="pw-rules">
-      <div class="pw-rule" data-rule="length"><span>○</span> 8+ characters</div>
-      <div class="pw-rule" data-rule="upper"><span>○</span> 1 uppercase letter</div>
-      <div class="pw-rule" data-rule="number"><span>○</span> 1 number</div>
-      <div class="pw-rule" data-rule="special"><span>○</span> 1 special character</div>
-    </div>
+    <div class="sms-body">
+      <div class="sms-timestamp">Today 2:31 PM</div>
 
-    <div class="input-group">
-      <label>Confirm Password</label>
-      <div class="input-wrapper">
-        <input type="password" placeholder="Re-enter your password" id="confirm-pw" oninput="checkForm()">
-        <button class="toggle-pw" onclick="togglePW(this)">👁</button>
+      <div class="sms-bubble-wrap">
+        <div class="sms-bubble">
+          <strong>You're in, Sarah.</strong> Your AutoPayPlus account is active.<br><br>
+          Your first withdrawal of <strong>$272.00</strong> is scheduled for <strong>May 5</strong>. You'll get a reminder 3 days before.<br><br>
+          <span class="next-step">✓ Banking confirmed · ✓ Payment plan active · ✓ Credit monitoring on</span>
+          Questions? (800) 555-1100 or reply HELP.<br>
+          Reply STOP to opt out.
+        </div>
       </div>
-      <div id="match-error" style="font-size:12px;color:var(--error);margin-top:4px;display:none;">Passwords do not match</div>
     </div>
 
-    <div class="spacer"></div>
-
-    <a href="/draft2/07-payment-method.html" class="btn btn-primary mb-3" id="submit-btn" style="pointer-events:none;opacity:0.5;">Create Account</a>
-    <a href="/draft2/05-confirm-contact.html" class="btn btn-ghost">Back</a>
-
-    <div class="security-footer">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      <span>Protected with bank-level security</span>
+    <div class="sms-input">
+      <input type="text" placeholder="Text Message">
+      <button class="sms-send">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
     </div>
   </div>
-</div>
 
-<script>
-function togglePW(btn) {
-  const inp = btn.parentElement.querySelector('input');
-  inp.type = inp.type==='password' ? 'text' : 'password';
-}
+  <div class="context-note">
+    <div class="tag">New — Portal Login Confirmation</div><br>
+    <strong>Portal login confirmation SMS</strong> — fires immediately when a member completes their first portal login. This is a new touchpoint added from Carl's analysis. Carl's data shows portal login is the single most important early-journey conversion event — all TU-enrolled members were portal-logged-in, none of the never-logged-in members were TU-enrolled. This SMS does two things: (1) confirms the login succeeded and the account is active, (2) reinforces the first debit date and amount before the member leaves the session. It also sets the expectation for the pre-debit reminder ("you'll get a reminder 3 days before"), which reduces surprise and support contacts. Fires once per member, suppressed after first send. See also: <a href="email-predebit-reminder.html">Pre-debit reminder email &rarr;</a>
+  </div>
 
-const rules = {
-  length: pw => pw.length >= 8,
-  upper:  pw => /[A-Z]/.test(pw),
-  number: pw => /\d/.test(pw),
-  special:pw => /[!@#$%^&*(),.?":{}|<>]/.test(pw),
-};
-
-let allRulesPass = false;
-
-function checkPassword() {
-  const pw = document.getElementById('password').value;
-  allRulesPass = true;
-  document.querySelectorAll('.pw-rule').forEach(el => {
-    const rule = el.dataset.rule;
-    const pass = rules[rule](pw);
-    if(!pass) allRulesPass = false;
-    el.classList.toggle('pass', pass);
-    el.querySelector('span').textContent = pass ? '✓' : '○';
-  });
-  checkForm();
-}
-
-function checkForm() {
-  const username = document.getElementById('username').value;
-  const pw = document.getElementById('password').value;
-  const cpw = document.getElementById('confirm-pw').value;
-  const match = pw === cpw && cpw.length > 0;
-  const btn = document.getElementById('submit-btn');
-  const err = document.getElementById('match-error');
-
-  err.style.display = cpw.length > 0 && !match ? '' : 'none';
-
-  const valid = username && allRulesPass && match;
-  btn.style.pointerEvents = valid ? '' : 'none';
-  btn.style.opacity = valid ? '1' : '0.5';
-}
-</script>
 </body>
 </html>

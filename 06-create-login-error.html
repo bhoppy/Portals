@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoPayPlus — Your First Withdrawal Is Coming Up</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:#F0F2F5; color:#2C2C2C; padding:16px; }
+    .email-wrap { max-width:600px; margin:0 auto; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.1); }
+
+    .email-header { background:#fff; padding:18px 32px 12px; text-align:center; border-bottom:1px solid #E5E7EB; }
+    .email-header img { height:28px; }
+
+    .email-hero { background:linear-gradient(135deg,#0576CE 0%,#0685E8 100%); padding:32px 32px 28px; text-align:center; color:#fff; }
+    .email-eyebrow { font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:10px; }
+    .email-hero h1 { font-size:24px;font-weight:700;line-height:1.25;margin-bottom:10px; }
+    .email-hero p { font-size:14px;color:rgba(255,255,255,.85);line-height:1.6;max-width:420px;margin:0 auto; }
+
+    .email-body { padding:28px 32px; }
+
+    /* Debit alert box — the most important element */
+    .debit-alert { background:#E8F6EE; border:2px solid #1B9E5A; border-radius:10px; padding:20px 24px; margin-bottom:24px; display:flex; gap:16px; align-items:flex-start; }
+    .debit-alert .da-icon { width:44px; height:44px; border-radius:50%; background:#1B9E5A; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+    .debit-alert .da-body { flex:1; }
+    .debit-alert .da-label { font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0F7B43;margin-bottom:6px; }
+    .debit-alert .da-amount { font-size:28px;font-weight:700;color:#0F7B43;line-height:1.1;margin-bottom:4px; }
+    .debit-alert .da-date { font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:4px; }
+    .debit-alert .da-sub { font-size:12px;color:#5A5A5A;line-height:1.45; }
+
+    /* Detail rows */
+    .detail-block { border:1px solid #E5E7EB; border-radius:8px; overflow:hidden; margin-bottom:20px; }
+    .detail-header { background:linear-gradient(135deg,#0576CE 0%,#0685E8 100%); padding:10px 16px; display:flex; justify-content:space-between; align-items:center; }
+    .detail-header .dh-label { font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75); }
+    .detail-header .dh-value { font-size:13px;font-weight:600;color:#fff; }
+    .detail-row { display:flex;justify-content:space-between;align-items:center;padding:11px 16px;border-bottom:1px solid #F3F4F6; }
+    .detail-row:last-child { border-bottom:none; }
+    .detail-row .dr-label { font-size:13px;color:#5A5A5A; }
+    .detail-row .dr-value { font-size:13px;font-weight:600;color:#2C2C2C; }
+    .detail-row .dr-value.hl { color:#0576CE;font-weight:700; }
+
+    /* Reassurance section */
+    .reassure-title { font-size:16px;font-weight:700;color:#1a1a2e;margin-bottom:4px; }
+    .reassure-sub { font-size:13px;color:#5A5A5A;margin-bottom:16px;line-height:1.5; }
+    .check-item { display:flex;gap:12px;align-items:flex-start;margin-bottom:12px; }
+    .check-dot { width:22px;height:22px;border-radius:50%;background:#E8F6EE;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px; }
+    .check-body .ct { font-size:14px;font-weight:600;color:#2C2C2C;margin-bottom:1px; }
+    .check-body .cd { font-size:12px;color:#5A5A5A;line-height:1.45; }
+
+    /* CTA */
+    .footer-cta { text-align:center;padding:20px 0 10px; }
+    .main-btn { display:inline-block;background:linear-gradient(135deg,#0576CE 0%,#0685E8 100%);color:#fff;font-weight:700;font-size:15px;padding:14px 40px;border-radius:8px;text-decoration:none;width:100%;text-align:center; }
+    .help-line { text-align:center;font-size:12px;color:#8A8A8A;margin-top:10px; }
+    .help-line a { color:#0576CE; }
+
+    /* Context note */
+    .context-note { background:#F0F2F5; border-top:1px solid #E5E7EB; padding:16px 32px; font-size:11px; color:#8A8A8A; line-height:1.6; }
+    .context-note strong { color:#2C2C2C; }
+    .context-note .tag { display:inline-block; background:#FDECEC; color:#C0392B; font-size:10px; font-weight:700; padding:2px 7px; border-radius:3px; text-transform:uppercase; letter-spacing:0.05em; }
+    .context-note .tag.fix { background:#E8F6EE; color:#0F7B43; }
+
+    .email-footer { padding:20px 32px 28px;border-top:1px solid #F3F4F6;text-align:center; }
+    .ef-brand { font-size:13px;color:#5A5A5A;line-height:1.6;margin-bottom:12px; }
+    .ef-links { font-size:11px;color:#8A8A8A; }
+    .ef-links a { color:#8A8A8A; }
+  </style>
+</head>
+<body>
+<div class="email-wrap">
+
+  <!-- Header -->
+  <div class="email-header">
+    <img src="https://autopayplus.com/wp-content/uploads/2021/05/APP-Logo-2024-without-USEA.svg" alt="AutoPayPlus">
+  </div>
+
+  <!-- Hero -->
+  <div class="email-hero">
+    <div class="email-eyebrow">Heads-up from AutoPayPlus</div>
+    <h1>Your first withdrawal<br>is coming up, Sarah</h1>
+    <p>Everything is on track. Here's what's happening and when.</p>
+  </div>
+
+  <!-- Body -->
+  <div class="email-body">
+
+    <!-- THE MOST IMPORTANT BLOCK: debit details front and center -->
+    <div class="debit-alert">
+      <div class="da-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      </div>
+      <div class="da-body">
+        <div class="da-label">Your first withdrawal</div>
+        <div class="da-amount">$272.00</div>
+        <div class="da-date">Monday, May 5, 2026</div>
+        <div class="da-sub">From: Chase checking ···6712<br>Toward your payment due May 12 on your 2025 Ford Escape</div>
+      </div>
+    </div>
+
+    <!-- Loan detail -->
+    <div class="detail-block">
+      <div class="detail-header">
+        <span class="dh-label">Loan summary</span>
+        <span class="dh-value">2025 Ford Escape</span>
+      </div>
+      <div class="detail-row">
+        <span class="dr-label">Biweekly withdrawal</span>
+        <span class="dr-value">$272.00</span>
+      </div>
+      <div class="detail-row">
+        <span class="dr-label">Withdrawal from</span>
+        <span class="dr-value">Chase ···6712</span>
+      </div>
+      <div class="detail-row">
+        <span class="dr-label">First withdrawal date</span>
+        <span class="dr-value hl">May 5, 2026</span>
+      </div>
+      <div class="detail-row">
+        <span class="dr-label">Goes toward payment due</span>
+        <span class="dr-value">May 12, 2026</span>
+      </div>
+      <div class="detail-row">
+        <span class="dr-label">Lender</span>
+        <span class="dr-value">Chase Auto Finance</span>
+      </div>
+    </div>
+
+    <div style="font-size:11px;color:#8A8A8A;margin-bottom:24px;line-height:1.5;">Withdrawals follow your pay schedule. Each one contributes toward your next payment — we send the full amount to Chase on your due date.</div>
+
+    <!-- Reassurance -->
+    <div class="reassure-title">What to expect</div>
+    <div class="reassure-sub">This is how AutoPayPlus works — clear, predictable, nothing hidden.</div>
+
+    <div class="check-item">
+      <div class="check-dot">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#1B9E5A"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+      </div>
+      <div class="check-body">
+        <div class="ct">Your bank account is confirmed</div>
+        <div class="cd">We have your Chase ···6712 on file from enrollment. Nothing else needed before May 5.</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-dot">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#1B9E5A"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+      </div>
+      <div class="check-body">
+        <div class="ct">We'll keep you posted</div>
+        <div class="cd">You'll receive a confirmation the day of each withdrawal, and a reminder before each one after this.</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-dot">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#1B9E5A"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+      </div>
+      <div class="check-body">
+        <div class="ct">Something changed? Contact us before May 4</div>
+        <div class="cd">If you need to update your bank account or have a question about this withdrawal, reach us before the day before at (800) 555-1100.</div>
+      </div>
+    </div>
+
+    <div style="height:12px;"></div>
+
+    <!-- CTA -->
+    <div class="footer-cta">
+      <a href="12-dashboard.html" class="main-btn">View My Account</a>
+    </div>
+    <div class="help-line">Questions about this withdrawal? <a href="mailto:membersupport@autopayplus.com">membersupport@autopayplus.com</a> · (800) 555-1100</div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="email-footer">
+    <div class="ef-brand">AutoPayPlus manages the timing and routing of your payments — we do not replace your lender. Your loan stays exactly where it is.</div>
+    <div class="ef-links">&copy; 2026 AutoPayPlus &nbsp;&middot;&nbsp; <a href="#">Manage preferences</a> &nbsp;&middot;&nbsp; <a href="#">Unsubscribe</a></div>
+  </div>
+
+  <!-- Prototype context note -->
+  <div class="context-note">
+    <span class="tag">Step 24 — Was Broken</span>
+    <span class="tag fix" style="margin-left:6px;">Redesigned</span><br><br>
+    <strong>Pre-debit reminder email</strong> — event-triggered 3 days before the member's first withdrawal. Fires from the member's actual first debit date stored in Creatio, not a fixed day-X calendar trigger. The debit amount and date are the most important information in onboarding communications — Carl's analysis confirms the broken Step 24 is a <strong>material trust defect</strong>. This version leads with the amount and date in the first visible block, adds banking account confirmation, and closes with a clear deadline for changes. Pair with: <a href="sms-predebit-reminder.html">Pre-debit SMS</a> · <a href="sms-portal-login-confirm.html">Portal login confirmation SMS</a>
+  </div>
+
+</div>
+</body>
+</html>
