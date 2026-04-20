@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoPayPlus — Welcome Back, Sarah</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:#F0F2F5; color:#2C2C2C; padding:16px; }
+    .email-wrap { max-width:600px; margin:0 auto; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.1); }
+
+    .email-header { background:#fff; padding:18px 32px 12px; text-align:center; border-bottom:1px solid #E5E7EB; }
+    .email-header img { height:28px; }
+
+    /* Return hero — warmer green tone to signal recognition */
+    .email-hero { background:linear-gradient(135deg,#0F7B43 0%,#1B9E5A 100%); padding:36px 32px 28px; text-align:center; color:#fff; }
+    .email-eyebrow { font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:10px; }
+    .email-hero h1 { font-size:26px;font-weight:700;line-height:1.2;margin-bottom:10px; }
+    .email-hero p { font-size:14px;color:rgba(255,255,255,.88);line-height:1.6;max-width:420px;margin:0 auto 22px; }
+    .email-cta { display:inline-block;background:#fff;color:#0F7B43;font-weight:700;font-size:15px;padding:13px 32px;border-radius:8px;text-decoration:none; }
+    .email-expire { font-size:11px;color:rgba(255,255,255,.6);margin-top:10px; }
+
+    .email-body { padding:28px 32px; }
+    .section-label { font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A8A8A;margin-bottom:4px; }
+    .section-head { font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:4px; }
+    .section-sub { font-size:13px;color:#5A5A5A;margin-bottom:20px;line-height:1.5; }
+
+    /* Recognition block — acknowledges history */
+    .history-block { background:#E8F6EE; border:1px solid #C6E9D4; border-radius:8px; padding:16px 20px; margin-bottom:20px; display:flex; gap:14px; align-items:flex-start; }
+    .hb-icon { width:36px; height:36px; border-radius:50%; background:#1B9E5A; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .hb-body { flex:1; }
+    .hb-title { font-size:14px;font-weight:700;color:#0F7B43;margin-bottom:4px; }
+    .hb-sub { font-size:12px;color:#3a7a5a;line-height:1.5; }
+
+    /* Loan table */
+    .loan-table { border:1px solid #E5E7EB;border-radius:8px;overflow:hidden;margin-bottom:20px; }
+    .loan-table-header { background:linear-gradient(135deg,#0576CE 0%,#0685E8 100%);padding:10px 16px;display:flex;justify-content:space-between;align-items:center; }
+    .loan-table-header .lt-label { font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75); }
+    .loan-table-header .lt-value { font-size:13px;font-weight:600;color:#fff; }
+    .loan-table-row { display:flex;justify-content:space-between;align-items:center;padding:11px 16px;border-bottom:1px solid #F3F4F6; }
+    .loan-table-row:last-child { border-bottom:none; }
+    .loan-table-row .lr-label { font-size:13px;color:#5A5A5A; }
+    .loan-table-row .lr-value { font-size:13px;font-weight:600;color:#2C2C2C; }
+    .loan-table-row .lr-value.highlight { color:#0576CE;font-weight:700; }
+
+    /* Stats */
+    .stats-row { display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px; }
+    .stat-box { background:#E8F6EE;border:1px solid #C6E9D4;border-radius:8px;padding:16px;text-align:center; }
+    .stat-label { font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0F7B43;margin-bottom:6px; }
+    .stat-value { font-size:24px;font-weight:700;color:#0F7B43;line-height:1.1; }
+
+    /* Simplified checklist — fewer steps for returning member */
+    .checklist-title { font-size:16px;font-weight:700;color:#1a1a2e;margin-bottom:4px; }
+    .checklist-sub { font-size:13px;color:#5A5A5A;margin-bottom:16px;line-height:1.5; }
+    .check-item { display:flex;gap:14px;align-items:flex-start;margin-bottom:14px; }
+    .check-num { width:28px;height:28px;border-radius:50%;background:#0576CE;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px; }
+    .check-body .check-title { font-size:14px;font-weight:600;color:#2C2C2C;margin-bottom:2px; }
+    .check-body .check-desc { font-size:12px;color:#5A5A5A;line-height:1.45; }
+    .returning-badge { display:inline-block;font-size:10px;font-weight:700;background:#E8F6EE;color:#0F7B43;border-radius:3px;padding:1px 6px;letter-spacing:.05em;vertical-align:middle;margin-left:6px; }
+
+    .footer-cta { text-align:center;padding:20px 0 8px; }
+    .main-btn { display:inline-block;background:linear-gradient(135deg,#0576CE 0%,#0685E8 100%);color:#fff;font-weight:700;font-size:15px;padding:14px 40px;border-radius:8px;text-decoration:none;width:100%;text-align:center; }
+    .footer-trouble { text-align:center;font-size:12px;color:#8A8A8A;margin-top:10px; }
+    .footer-trouble a { color:#0576CE; }
+
+    .context-note { background:#F0F2F5; border-top:1px solid #E5E7EB; padding:16px 32px; font-size:11px; color:#8A8A8A; line-height:1.6; }
+    .context-note strong { color:#2C2C2C; }
+    .context-note a { color:#0576CE; }
+    .context-note .tag { display:inline-block; background:#E8F6EE; color:#0F7B43; font-size:10px; font-weight:700; padding:2px 7px; border-radius:3px; text-transform:uppercase; letter-spacing:0.05em; }
+
+    .email-footer { padding:20px 32px 28px;border-top:1px solid #F3F4F6;text-align:center; }
+    .ef-brand { font-size:13px;color:#5A5A5A;line-height:1.6;margin-bottom:12px; }
+    .ef-links { font-size:11px;color:#8A8A8A; }
+    .ef-links a { color:#8A8A8A; }
+  </style>
+</head>
+<body>
+<div class="email-wrap">
+
+  <!-- Header -->
+  <div class="email-header">
+    <img src="https://autopayplus.com/wp-content/uploads/2021/05/APP-Logo-2024-without-USEA.svg" alt="AutoPayPlus">
+  </div>
+
+  <!-- Hero — green to signal recognition, not a first-time welcome -->
+  <div class="email-hero">
+    <div class="email-eyebrow">Welcome back to AutoPayPlus</div>
+    <h1>Good to have you back,<br>Sarah — new plan, same service.</h1>
+    <p>Your 2025 Ford Escape is now on AutoPayPlus. Since you've done this before, setup takes about 2 minutes.</p>
+    <a href="01-magic-link.html" class="email-cta">Set Up My New Loan &rarr;</a>
+    <div class="email-expire">Link expires in 7 days &nbsp;&middot;&nbsp; Secure, one-tap access</div>
+  </div>
+
+  <!-- Body -->
+  <div class="email-body">
+
+    <!-- Recognition block — acknowledges prior relationship -->
+    <div class="history-block">
+      <div class="hb-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      </div>
+      <div class="hb-body">
+        <div class="hb-title">We remember you</div>
+        <div class="hb-sub">Your previous AutoPayPlus loan was handled successfully. This new plan works exactly the same way — same process, same protections, same team.</div>
+      </div>
+    </div>
+
+    <!-- New loan -->
+    <div class="section-label">Your new loan</div>
+    <div class="section-head">Here's what's coming</div>
+    <div class="section-sub">These are the details AutoPayPlus will manage for your 2025 Ford Escape.</div>
+
+    <div class="loan-table">
+      <div class="loan-table-header">
+        <span class="lt-label">Loan summary</span>
+        <span class="lt-value">2025 Ford Escape</span>
+      </div>
+      <div class="loan-table-row">
+        <span class="lr-label">Financed amount</span>
+        <span class="lr-value">$32,450.00</span>
+      </div>
+      <div class="loan-table-row">
+        <span class="lr-label">Plan cycle</span>
+        <span class="lr-value">Biweekly</span>
+      </div>
+      <div class="loan-table-row">
+        <span class="lr-label">Biweekly withdrawal</span>
+        <span class="lr-value">$272.00</span>
+      </div>
+      <div class="loan-table-row">
+        <span class="lr-label">First withdrawal date</span>
+        <span class="lr-value highlight">May 5, 2026</span>
+      </div>
+    </div>
+
+    <!-- Savings -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-label">Est. Interest Saved</div>
+        <div class="stat-value">$3,215</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Est. Early Payoff</div>
+        <div class="stat-value">9 months</div>
+      </div>
+    </div>
+
+    <!-- Simplified steps for returning member -->
+    <div class="checklist-title">Two quick steps</div>
+    <div class="checklist-sub">Since you've done this before, you just need to confirm your information for the new loan.</div>
+
+    <div class="check-item">
+      <div class="check-num">1</div>
+      <div class="check-body">
+        <div class="check-title">Confirm your bank account <span class="returning-badge">RETURNING</span></div>
+        <div class="check-desc">We'll show you the account we have on file. Just confirm it's still right, or update if needed.</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-num">2</div>
+      <div class="check-body">
+        <div class="check-title">Verify your new loan details</div>
+        <div class="check-desc">Confirm the 2025 Ford Escape details look right before we start withdrawals on May 5.</div>
+      </div>
+    </div>
+
+    <div style="height:8px;"></div>
+
+    <!-- CTA -->
+    <div class="footer-cta">
+      <a href="01-magic-link.html" class="main-btn">Confirm My New Loan &rarr;</a>
+    </div>
+    <div class="footer-trouble">Takes about 2 minutes. Questions? <a href="mailto:membersupport@autopayplus.com">membersupport@autopayplus.com</a></div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="email-footer">
+    <div class="ef-brand">AutoPayPlus guides your payments in a clear, predictable way — we don't replace your lender. You'll always see what's coming next.</div>
+    <div class="ef-links">Questions? <a href="mailto:membersupport@autopayplus.com">membersupport@autopayplus.com</a> &nbsp;&middot;&nbsp; (800) 555-1100</div>
+    <div class="ef-links" style="margin-top:8px;">&copy; 2026 AutoPayPlus &nbsp;&middot;&nbsp; <a href="#">Manage preferences</a> &nbsp;&middot;&nbsp; <a href="#">Unsubscribe</a></div>
+  </div>
+
+  <!-- Prototype context -->
+  <div class="context-note">
+    <span class="tag">New — Returning Member</span><br><br>
+    <strong>Returning member welcome email</strong> — for members who have had a previous AutoPayPlus account (prior loan, now enrolling a new vehicle). Carl's analysis confirmed the Creatio welcome email logic was suppressing sends for prior-account holders because they weren't routing to either welcome path. This is the second of two welcome email versions. Key differences from the new-member version: green hero (signals recognition vs. first-time blue), explicit acknowledgment of the prior relationship, shortened checklist (2 steps vs. 4 — bank confirm + loan verify, no need for full identity setup or TU re-enrollment), CTA language says "Confirm my new loan" not "Set up my account." See also: <a href="email-01-welcome.html">New member welcome email</a> · <a href="email-predebit-reminder.html">Pre-debit reminder</a>
+  </div>
+
+</div>
+</body>
+</html>
