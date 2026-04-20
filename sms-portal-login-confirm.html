@@ -3,81 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>AutoPayPlus — TransUnion Code</title>
+  <title>AutoPayPlus — Portal Login Confirmation SMS</title>
   <link rel="stylesheet" href="shared.css">
-  <script src="https://kit.fontawesome.com/88e6030591.js" crossorigin="anonymous"></script>
+  <style>
+    .sms-screen { background:#1C1C1E; min-height:100vh; display:flex; flex-direction:column; }
+    .sms-header { padding:48px 20px 12px; display:flex; align-items:center; gap:12px; }
+    .sms-avatar { width:36px; height:36px; border-radius:50%; background:#1B9E5A; display:flex; align-items:center; justify-content:center; font-size:16px; }
+    .sms-meta { flex:1; }
+    .sms-name { font-size:16px; font-weight:600; color:#fff; }
+    .sms-sub { font-size:12px; color:#8E8E93; }
+    .sms-body { flex:1; padding:12px 20px 20px; }
+    .sms-bubble-wrap { display:flex; margin-bottom:14px; }
+    .sms-bubble { max-width:82%; padding:12px 16px; border-radius:18px; font-size:14px; line-height:1.55; color:#fff; background:#3A3A3C; }
+    .sms-bubble strong { font-weight:700; }
+    .sms-bubble .next-step { display:block; background:rgba(27,158,90,0.25); border-radius:8px; padding:8px 12px; margin:10px 0 4px; border-left:3px solid #1B9E5A; font-size:13px; }
+    .sms-timestamp { font-size:11px; color:#636366; text-align:center; margin-bottom:16px; }
+    .sms-input { padding:12px 16px 32px; background:#1C1C1E; border-top:1px solid #38383A; display:flex; align-items:center; gap:10px; }
+    .sms-input input { flex:1; background:#2C2C2E; border:none; border-radius:18px; padding:10px 16px; color:#fff; font-size:14px; outline:none; }
+    .sms-input input::placeholder { color:#636366; }
+    .sms-send { width:32px; height:32px; border-radius:50%; background:#0576CE; display:flex; align-items:center; justify-content:center; border:none; cursor:pointer; }
+    .context-note { background:#F0F2F5; border-radius:12px; padding:16px; margin:20px; font-size:12px; color:#5A5A5A; line-height:1.6; }
+    .context-note strong { color:#2C2C2C; }
+    .context-note a { color:#0576CE; font-weight:600; }
+    .context-note .tag { display:inline-block; background:#E8F6EE; color:#0F7B43; font-size:10px; font-weight:700; padding:2px 7px; border-radius:3px; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px; }
+  </style>
 </head>
-<body>
-<main class="app">
+<body style="background:#1C1C1E;padding:0;">
 
-    <!-- Logo -->
-    <div style="text-align:center;padding-top:8px;padding-bottom:18px;">
-      <img src="https://autopayplus.com/wp-content/uploads/2021/05/APP-Logo-2024-without-USEA.svg" alt="AutoPayPlus" style="height:28px;">
-    </div>
-
-    <div class="step-bar">
-      <div class="step-meta"><span>Step 6 of 7</span><span class="label">TransUnion</span></div>
-      <div class="step-track"><div class="step-fill" style="width:80%"></div></div>
-    </div>
-
-    <h1>Enter your TransUnion code</h1>
-    <p class="subtitle">TransUnion just sent a 6-digit code to <strong>••••1234</strong>. Enter it below to turn on monitoring.</p>
-
-    <div class="otp-group">
-      <input type="text" maxlength="1" inputmode="numeric" oninput="otpAdvance(this,0)" onfocus="this.select()">
-      <input type="text" maxlength="1" inputmode="numeric" oninput="otpAdvance(this,1)" onfocus="this.select()">
-      <input type="text" maxlength="1" inputmode="numeric" oninput="otpAdvance(this,2)" onfocus="this.select()">
-      <input type="text" maxlength="1" inputmode="numeric" oninput="otpAdvance(this,3)" onfocus="this.select()">
-      <input type="text" maxlength="1" inputmode="numeric" oninput="otpAdvance(this,4)" onfocus="this.select()">
-      <input type="text" maxlength="1" inputmode="numeric" oninput="otpAdvance(this,5)" onfocus="this.select()">
-    </div>
-
-    <p class="text-sm text-primary text-center mb-6" style="cursor:pointer;font-weight:600;" id="resend-link" onclick="resendCode()">Resend code</p>
-
-    <div class="spacer"></div>
-
-    <a href="10-credit-score.html" class="btn btn-primary">Verify</a>
-    <a href="08-transunion-method.html" class="btn btn-ghost">Use a different method</a>
-    <div class="page-footer">
-      <a href="get-help.html" class="help-link">Having trouble? Get help</a>
-      <div class="security-footer">
-        <i class="fa-solid fa-lock" style="font-size:11px;color:#8A8A8A;"></i>
-        <span>Secure and encrypted</span>
+  <div class="sms-screen">
+    <div class="sms-header">
+      <div class="sms-avatar">✓</div>
+      <div class="sms-meta">
+        <div class="sms-name">AutoPayPlus</div>
+        <div class="sms-sub">Text Message · Fires immediately after first login</div>
       </div>
     </div>
+
+    <div class="sms-body">
+      <div class="sms-timestamp">Today 2:31 PM</div>
+
+      <div class="sms-bubble-wrap">
+        <div class="sms-bubble">
+          <strong>You're in, Sarah.</strong> Your AutoPayPlus account is active.<br><br>
+          Your first withdrawal of <strong>$272.00</strong> is scheduled for <strong>May 5</strong>. You'll get a reminder 3 days before.<br><br>
+          <span class="next-step">✓ Banking confirmed · ✓ Payment plan active · ✓ Credit monitoring on</span>
+          Questions? (800) 555-1100 or reply HELP.<br>
+          Reply STOP to opt out.
+        </div>
+      </div>
+    </div>
+
+    <div class="sms-input">
+      <input type="text" placeholder="Text Message">
+      <button class="sms-send">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
   </div>
-</div>
-<script>
-const otpInputs = document.querySelectorAll('.otp-group input');
-function otpAdvance(el, idx) {
-  if(el.value && idx < 5) otpInputs[idx+1].focus();
-  el.classList.toggle('filled', !!el.value);
-}
-otpInputs.forEach((inp, i) => {
-  inp.addEventListener('keydown', e => {
-    if(e.key === 'Backspace' && !inp.value && i > 0) otpInputs[i-1].focus();
-  });
-  inp.addEventListener('paste', e => {
-    e.preventDefault();
-    const data = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g,'').slice(0,6);
-    data.split('').forEach((c,j) => { if(otpInputs[j]) { otpInputs[j].value = c; otpInputs[j].classList.add('filled'); }});
-    if(data.length > 0) otpInputs[Math.min(data.length, 5)].focus();
-  });
-});
-let cooldown = 0;
-function resendCode() {
-  if(cooldown > 0) return;
-  cooldown = 30;
-  otpInputs.forEach(i => { i.value=''; i.classList.remove('filled'); });
-  otpInputs[0].focus();
-  const link = document.getElementById('resend-link');
-  const tick = setInterval(() => {
-    cooldown--;
-    link.textContent = cooldown > 0 ? `You can request a new code in ${cooldown}s` : 'Resend code';
-    link.style.color = cooldown > 0 ? 'var(--text-muted)' : 'var(--primary)';
-    if(cooldown <= 0) clearInterval(tick);
-  }, 1000);
-}
-</script>
+
+  <div class="context-note">
+    <div class="tag">New — Portal Login Confirmation</div><br>
+    <strong>Portal login confirmation SMS</strong> — fires immediately when a member completes their first portal login. This is a new touchpoint added from Carl's analysis. Carl's data shows portal login is the single most important early-journey conversion event — all TU-enrolled members were portal-logged-in, none of the never-logged-in members were TU-enrolled. This SMS does two things: (1) confirms the login succeeded and the account is active, (2) reinforces the first debit date and amount before the member leaves the session. It also sets the expectation for the pre-debit reminder ("you'll get a reminder 3 days before"), which reduces surprise and support contacts. Fires once per member, suppressed after first send. See also: <a href="email-predebit-reminder.html">Pre-debit reminder email &rarr;</a>
+  </div>
+
 </body>
 </html>
